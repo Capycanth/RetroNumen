@@ -29,9 +29,9 @@ namespace RetroNumen.Display.MainDisplay.HexMap
             this.textColor = textColor;
             this.type = type;
 
-            this.textFont = GameMain.Cache.Fonts["wartext"];
             this.mod = HexBoxMod.NORMAL;
             this.modColor = HexBoxHelper.GetHexBoxModColor(this.mod);
+            this.textFont = GameMain.Cache.Fonts["wartext"];
             this.modTexture = new Texture2D(GameMain.Graphics.GraphicsDevice, 1, 1);
         }
 
