@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RetroNumen", "RetroNumen.csproj", "{9B9AC95C-88E0-41C1-96E0-5A4282068E07}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9B9AC95C-88E0-41C1-96E0-5A4282068E07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B9AC95C-88E0-41C1-96E0-5A4282068E07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B9AC95C-88E0-41C1-96E0-5A4282068E07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B9AC95C-88E0-41C1-96E0-5A4282068E07}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {81026921-4265-4424-AB16-9C5C37B4203B}
+	EndGlobalSection
+EndGlobal
