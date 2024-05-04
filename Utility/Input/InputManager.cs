@@ -46,6 +46,11 @@ namespace RetroNumen.Input
             return true;
         }
 
+        public MouseState GetCurrentMouseState()
+        {
+            return this.inputContainer.c_Mouse;
+        }
+
         public Dictionary<Keys, InputEnum> KeyBindings { get { return keyBindings; } set { this.keyBindings = value; } }
 
         private class InputContainer

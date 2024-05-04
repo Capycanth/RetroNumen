@@ -10,6 +10,8 @@ namespace RetroNumen.Display.MainDisplay.HexMap
         private int x_coord;
         private int y_coord;
 
+        public HexChunk() { }
+
         public HexChunk(int x, int y)
         {
             this.x_coord = x;
@@ -46,7 +48,7 @@ namespace RetroNumen.Display.MainDisplay.HexMap
                 for (int x = 0; x < Globals.CHUNK_HEX_BOX_SIZE; x++)
                 {
                     HexBoxType[] types = Enum.GetValues<HexBoxType>();
-                    HexBox hexBox = HexBoxHelper.CreateHexBoxByEnum(types[GameMain.Random.Next(types.Length)]);
+                    HexBox hexBox = HexBoxHelper.CreateHexBoxByEnum(types[GameMain.Random.Next(1, types.Length)]);
                     hexBox.SetPosition(x, y);
                     this.chunk[y, x] = hexBox;
                 }

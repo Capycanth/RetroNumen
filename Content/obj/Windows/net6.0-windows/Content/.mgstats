@@ -1,0 +1,6 @@
+Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"C:/OiCornwall/GameDev/RetroNumen/Content/Fonts/wartext14.spritefont","C:/OiCornwall/GameDev/RetroNumen/Content/bin/Windows/Content/Fonts/wartext14.xnb","FontDescriptionProcessor","SpriteFontContent",2067,21535,0.4250213
+"C:/OiCornwall/GameDev/RetroNumen/Content/Fonts/wartext20.spritefont","C:/OiCornwall/GameDev/RetroNumen/Content/bin/Windows/Content/Fonts/wartext20.xnb","FontDescriptionProcessor","SpriteFontContent",2067,21535,0.0505827
+"C:/OiCornwall/GameDev/RetroNumen/Content/Textures/background.png","C:/OiCornwall/GameDev/RetroNumen/Content/bin/Windows/Content/Textures/background.xnb","TextureProcessor","Texture2DContent",115970,2408533,0.1918772
+"C:/OiCornwall/GameDev/RetroNumen/Content/Textures/InfoButtonSelected.png","C:/OiCornwall/GameDev/RetroNumen/Content/bin/Windows/Content/Textures/InfoButtonSelected.xnb","TextureProcessor","Texture2DContent",762,12885,0.0065409
+"C:/OiCornwall/GameDev/RetroNumen/Content/Textures/InfoButtonUnSelected.png","C:/OiCornwall/GameDev/RetroNumen/Content/bin/Windows/Content/Textures/InfoButtonUnSelected.xnb","TextureProcessor","Texture2DContent",766,12885,0.0146589

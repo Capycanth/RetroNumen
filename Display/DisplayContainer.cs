@@ -8,7 +8,9 @@ namespace RetroNumen.Display
         public static DisplayContainer Instance => instance ?? (instance = new DisplayContainer());
         private DisplayContainer() 
         { 
-          
+            mainDisplay = MainDisplay.MainDisplay.Instance;
+            infoDisplay = InfoDisplay.InfoDisplay.Instance;
+            dialogueDisplay = DialogueDisplay.DialogueDisplay.Instance;
         }
 
         private MainDisplay.MainDisplay mainDisplay;

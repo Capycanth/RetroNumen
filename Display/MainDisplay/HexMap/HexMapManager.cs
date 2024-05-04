@@ -10,7 +10,7 @@ namespace RetroNumen.Display.MainDisplay.HexMap
         private HexMapManager() { }
 
         private HexChunk[,] map;
-        private (int, int) currentChunk;
+        private (int, int) currentChunk = (Globals.MAP_HEX_BOX_SIZE >> 1, Globals.MAP_HEX_BOX_SIZE >> 1);
 
         public void Draw()
         {
@@ -30,6 +30,7 @@ namespace RetroNumen.Display.MainDisplay.HexMap
             {
                 for (int x = 0; x < Globals.MAP_HEX_BOX_SIZE; x++)
                 {
+                    map[y, x] = new HexChunk();
                     map[y, x].InitializeRandomChunk();
                 }
             }
