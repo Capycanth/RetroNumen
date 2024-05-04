@@ -28,5 +28,23 @@ namespace RetroNumen.Utility
         public Dictionary<string, SpriteFont> Fonts { get { return _fonts; } }
         public Dictionary<string, Texture2D> Textures { get { return _textures; } }
 
+        public void Initialize()
+        {
+            _textures = new Dictionary<string, Texture2D>()
+            {
+                { "background", contentManager.Load<Texture2D>("Textures/background") },
+                { "InfoButtonSelected", contentManager.Load<Texture2D>("Textures/InfoButtonSelected") },
+                { "InfoButtonUnselected", contentManager.Load<Texture2D>("Textures/InfoButtonUnSelected") },
+            };
+            _fonts = new Dictionary<string, SpriteFont>()
+            {
+                { "wartext14", contentManager.Load<SpriteFont>("Fonts/wartext14") },
+                { "wartext20", contentManager.Load<SpriteFont>("Fonts/wartext20") }
+            };
+            _songs = new Dictionary<string, Song>()
+            {
+
+            };
+        }
     }
 }

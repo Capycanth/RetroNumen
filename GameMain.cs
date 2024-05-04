@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using RetroNumen.Display;
+using RetroNumen.Input;
 using RetroNumen.Utility;
 using System;
 
@@ -8,6 +10,7 @@ namespace RetroNumen
 {
     public class GameMain : Game
     {
+        #region Static Elements
         private static GraphicsDeviceManager _graphics;
         public static GraphicsDeviceManager Graphics { get { return _graphics; } }
 
@@ -18,18 +21,32 @@ namespace RetroNumen
         public static Cache Cache { get { return _cache; } }
 
         private static Random _random;
-        public static Random Random { get { return _random; } } 
+        public static Random Random { get { return _random; } }
+
+        private static InputManager _inputManager;
+        public static InputManager InputManager { get { return _inputManager; } }
+        #endregion
+
+        #region Local Elements
+        private static DisplayContainer displayContainer;
+        private Rectangle _background;
+        #endregion
 
         public GameMain()
         {
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
+            _graphics.PreferredBackBufferWidth = 896;
+            _graphics.PreferredBackBufferHeight = 672;
         }
 
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
+            _random = new Random();
+            _inputManager = InputManager.Instance;
+            _cache = Cache.Instance(Content);
+            _background = new Rectangle(0, 0, 896, 672);
 
             base.Initialize();
         }
@@ -38,7 +55,8 @@ namespace RetroNumen
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            // TODO: use this.Content to load your game content here
+            _cache.Initialize();
+            displayContainer = DisplayContainer.Instance;
         }
 
         protected override void Update(GameTime gameTime)
@@ -46,16 +64,21 @@ namespace RetroNumen
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            // TODO: Add your update logic here
+            _inputManager.Update(Keyboard.GetState(), Mouse.GetState());
+
+            displayContainer.Update(gameTime);
 
             base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Black);
 
-            // TODO: Add your drawing code here
+            _spriteBatch.Begin();
+            _spriteBatch.Draw(_cache.Textures["background"], this._background, Color.White);
+            displayContainer.Draw();
+            _spriteBatch.End();
 
             base.Draw(gameTime);
         }
