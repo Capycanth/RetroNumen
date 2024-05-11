@@ -15,6 +15,8 @@ namespace RetroNumen.Display.MainDisplay.HexMap
                 HexBoxType.ROCK =>      new HexBox("44", 0x44, new Color(103, 103, 103), HexBoxType.ROCK),
                 HexBoxType.MUSHROOM =>  new HexBox("55", 0x55, new Color(216, 072, 088), HexBoxType.MUSHROOM),
                 HexBoxType.NUMEN =>     new HexBox("77", 0x77, new Color(153, 102, 204), HexBoxType.NUMEN),
+                HexBoxType.PLAYER =>    new HexBox("A0", 0xA0, new Color(255, 215, 000), HexBoxType.PLAYER),
+                HexBoxType.ART =>       new HexBox("00", 0x00, Color.White, HexBoxType.ART),
                 _ => null,
             };
         }
@@ -25,7 +27,8 @@ namespace RetroNumen.Display.MainDisplay.HexMap
             {
                 HexBoxMod.NORMAL =>     Color.Black,
                 HexBoxMod.FIRE =>       Color.Red,
-                HexBoxMod.CHARACTER =>  new Color(100, 100, 100),
+                HexBoxMod.FLICKER =>    new Color(100, 100, 100),
+                HexBoxMod.BLACK =>      Color.Black,
                 _ => Color.HotPink, // WARNING COLOR
             };
         }

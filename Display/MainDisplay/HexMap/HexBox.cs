@@ -31,10 +31,10 @@ namespace RetroNumen.Display.MainDisplay.HexMap
             this.textColor = textColor;
             this.type = type;
 
-            this.mod = HexBoxMod.NORMAL;
-            this.modColor = HexBoxHelper.GetHexBoxModColor(this.mod);
-            this.textFont = GameMain.Cache.Fonts["wartext14"];
             this.modTexture = new Texture2D(GameMain.Graphics.GraphicsDevice, 1, 1);
+            this.Mod = HexBoxMod.NORMAL;
+            this.textFont = GameMain.Cache.Fonts["wartext14"];
+            
         }
 
         public void Draw()
@@ -44,7 +44,7 @@ namespace RetroNumen.Display.MainDisplay.HexMap
             GameMain.SpriteBatch.DrawString(this.textFont, this.hexString, this.textPosition, this.textColor);
         }
 
-        public void Update()
+        public void Update(GameTime gameTime)
         {
 
         }
@@ -61,13 +61,33 @@ namespace RetroNumen.Display.MainDisplay.HexMap
             Vector2 textSize = this.textFont.MeasureString(this.hexString);
             this.textPosition = new Vector2(
                 (this.modRect.X + (this.modRect.Width - textSize.X) / 2) + one_count,
-                (this.modRect.Y + (this.modRect.Height - textSize.Y) / 2) + 1);
+                (this.modRect.Y + (this.modRect.Height - textSize.Y) / 2) + 2);
         }
 
-        public void SetModType(HexBoxMod mod)
+        public void MovePosition(int x, int y)
         {
-            this.mod = mod;
-            this.modColor = HexBoxHelper.GetHexBoxModColor(mod);
+            this.modRect.X += (x * Globals.HEX_BOX_SIZE);
+            this.modRect.Y -= (y * Globals.HEX_BOX_SIZE);
+            this.textPosition.X += (x * Globals.HEX_BOX_SIZE);
+            this.textPosition.Y -= (y * Globals.HEX_BOX_SIZE);
+        }
+
+        public HexBoxMod Mod
+        {
+            get { return this.mod; }
+            set
+            {
+                this.mod = value;
+                this.modColor = HexBoxHelper.GetHexBoxModColor(this.mod);
+                this.modTexture.SetData(new[] { this.modColor });
+
+            }
+        }
+
+        public Color TextColor
+        {
+            get { return this.textColor; }
+            set { this.textColor = value; }
         }
     }
 }

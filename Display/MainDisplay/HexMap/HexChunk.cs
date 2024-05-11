@@ -31,7 +31,7 @@ namespace RetroNumen.Display.MainDisplay.HexMap
         {
             foreach (HexBox box in this.chunk)
             {
-                box.Update();
+                box.Update(gameTime);
             }
         }
 
@@ -47,8 +47,7 @@ namespace RetroNumen.Display.MainDisplay.HexMap
             {
                 for (int x = 0; x < Globals.CHUNK_HEX_BOX_SIZE; x++)
                 {
-                    HexBoxType[] types = Enum.GetValues<HexBoxType>();
-                    HexBox hexBox = HexBoxHelper.CreateHexBoxByEnum(types[GameMain.Random.Next(1, types.Length)]);
+                    HexBox hexBox = HexBoxHelper.CreateHexBoxByEnum(Globals.ValidFloorTypes[GameMain.Random.Next(Globals.ValidFloorTypes.Count)]);
                     hexBox.SetPosition(x, y);
                     this.chunk[y, x] = hexBox;
                 }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework.Input;
+using RetroNumen.Display.MainDisplay.HexMap;
 using RetroNumen.Input;
 using System.Collections.Generic;
 
@@ -10,7 +11,7 @@ namespace RetroNumen.Utility
         // HexBox
         public static readonly int HEX_BOX_SIZE = 16;
         public static readonly int CHUNK_HEX_BOX_SIZE = 32;
-        public static readonly int MAP_HEX_BOX_SIZE = 32;
+        public static readonly int MAP_HEX_BOX_SIZE = 8;
         // MainDisplay
         public static readonly int MAIN_DISPLAY_Y_OFFSET = 10;
         public static readonly int MAIN_DISPLAY_X_OFFSET = 10;
@@ -29,6 +30,23 @@ namespace RetroNumen.Utility
             { Keys.Up, InputEnum.UP },
             { Keys.Down, InputEnum.DOWN },
         };
+        #endregion
+
+        #region Collections
+        public static readonly List<HexBoxType> ValidFloorTypes = new List<HexBoxType>()
+        {
+            HexBoxType.GRASS,
+            HexBoxType.SAND,
+            HexBoxType.ROCK,
+            HexBoxType.WATER,
+            HexBoxType.MUSHROOM,
+            HexBoxType.NUMEN,
+        };
+        #endregion
+
+        #region Art
+
+
         #endregion
     }
 }

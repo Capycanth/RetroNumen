@@ -12,14 +12,24 @@
         NUMEN = 6,
 
         // Character Types
+        PLAYER = 50,
 
         // Item Types
+
+        // Special Types
+        ART = 150,
     }
 
     public enum HexBoxMod : byte
     {
         NORMAL = 0,
+        // Affects
         FIRE = 1,
-        CHARACTER = 2,
+        FLICKER = 2,
+
+        // Special
+
+        // Color
+        BLACK = 100,
     }
 }

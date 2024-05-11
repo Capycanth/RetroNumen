@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using RetroNumen.Utility;
+using System.Threading.Tasks;
 
 namespace RetroNumen.Display.MainDisplay.HexMap
 {
@@ -26,14 +27,15 @@ namespace RetroNumen.Display.MainDisplay.HexMap
         {
             map = new HexChunk[Globals.MAP_HEX_BOX_SIZE, Globals.MAP_HEX_BOX_SIZE];
 
-            for (int y = 0; y < Globals.MAP_HEX_BOX_SIZE; y++)
-            {
-                for (int x = 0; x < Globals.MAP_HEX_BOX_SIZE; x++)
+            Parallel.For(0, Globals.MAP_HEX_BOX_SIZE,
+                (y) =>
                 {
-                    map[y, x] = new HexChunk();
-                    map[y, x].InitializeRandomChunk();
-                }
-            }
+                    for (int x = 0; x < Globals.MAP_HEX_BOX_SIZE; x++)
+                    {
+                        map[y, x] = new HexChunk();
+                        map[y, x].InitializeRandomChunk();
+                    }
+                });
         }
 
         public void InitializePerlinMap()

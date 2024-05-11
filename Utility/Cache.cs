@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Media;
 using System.Collections.Generic;
+using System.Drawing;
 
 namespace RetroNumen.Utility
 {
@@ -23,10 +24,13 @@ namespace RetroNumen.Utility
         private Dictionary<string, Texture2D> _textures;
         private Dictionary<string, SpriteFont> _fonts;
         private Dictionary<string, Song> _songs;
+        private Dictionary<string, Bitmap> _bitmaps;
+        
 
         public Dictionary<string, Song> Songs { get { return _songs; } }
         public Dictionary<string, SpriteFont> Fonts { get { return _fonts; } }
         public Dictionary<string, Texture2D> Textures { get { return _textures; } }
+        public Dictionary<string, Bitmap> Bitmaps { get { return this._bitmaps; } }
 
         public void Initialize()
         {
@@ -44,6 +48,10 @@ namespace RetroNumen.Utility
             _songs = new Dictionary<string, Song>()
             {
 
+            };
+            _bitmaps = new Dictionary<string, Bitmap>()
+            {
+                { "skully_still",  contentManager.Load<Bitmap>("skully_still") },
             };
         }
     }

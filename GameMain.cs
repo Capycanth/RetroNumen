@@ -2,9 +2,11 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using RetroNumen.Display;
+using RetroNumen.Entity.Character;
 using RetroNumen.Input;
 using RetroNumen.Utility;
 using System;
+using System.Collections.Generic;
 
 namespace RetroNumen
 {
@@ -30,6 +32,7 @@ namespace RetroNumen
         #region Local Elements
         private static DisplayContainer displayContainer;
         private Rectangle _background;
+        private Dictionary<int, CharacterBase> _characters;
         #endregion
 
         public GameMain()
@@ -57,6 +60,10 @@ namespace RetroNumen
 
             _cache.Initialize();
             displayContainer = DisplayContainer.Instance;
+            _characters = new Dictionary<int, CharacterBase>()
+            {
+                { 0, new Player(0) }
+            };
         }
 
         protected override void Update(GameTime gameTime)
@@ -68,6 +75,11 @@ namespace RetroNumen
 
             displayContainer.Update(gameTime);
 
+            foreach (CharacterBase character in _characters.Values)
+            {
+                character.Update(gameTime);
+            }
+
             base.Update(gameTime);
         }
 
@@ -78,6 +90,10 @@ namespace RetroNumen
             _spriteBatch.Begin();
             _spriteBatch.Draw(_cache.Textures["background"], this._background, Color.White);
             displayContainer.Draw();
+            foreach (CharacterBase character in _characters.Values)
+            {
+                character.Draw();
+            }
             _spriteBatch.End();
 
             base.Draw(gameTime);
